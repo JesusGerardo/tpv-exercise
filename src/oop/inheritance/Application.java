@@ -28,7 +28,7 @@ public class Application {
 
     public void showMenu() {
         if (supportedTerminal == SupportedTerminal.INGENICO) {
-            IngenicoDisplay ingenicoDisplay = new IngenicoDisplay();
+            IngenicoDisplay ingenicoDisplay = IngenicoDisplay.getInstance();
 
             ingenicoDisplay.showMessage(5, 5, "MENU");
             ingenicoDisplay.showMessage(5, 10, "1. VENTA");
@@ -36,7 +36,7 @@ public class Application {
             ingenicoDisplay.showMessage(5, 16, "3. REPORTE");
             ingenicoDisplay.showMessage(5, 23, "4. CONFIGURACION");
         } else {
-            VerifoneV240mDisplay verifoneV240mDisplay = new VerifoneV240mDisplay();
+            VerifoneV240mDisplay verifoneV240mDisplay = VerifoneV240mDisplay.getInstance();
 
             verifoneV240mDisplay.showMessage(5, 5, "MENU");
             verifoneV240mDisplay.showMessage(5, 10, "1. VENTA");
@@ -56,7 +56,7 @@ public class Application {
     public void doSale() {
         IngenicoCardSwipper cardSwipper = new IngenicoCardSwipper();
         IngenicoChipReader chipReader = new IngenicoChipReader();
-        IngenicoDisplay ingenicoDisplay = new IngenicoDisplay();
+        IngenicoDisplay ingenicoDisplay = IngenicoDisplay.getInstance();
         IngenicoKeyboard ingenicoKeyboard = new IngenicoKeyboard();
         Card card;
 
@@ -143,11 +143,11 @@ public class Application {
 
     public void clearScreen() {
         if (supportedTerminal == SupportedTerminal.INGENICO) {
-            IngenicoDisplay ingenicoDisplay = new IngenicoDisplay();
+            IngenicoDisplay ingenicoDisplay = IngenicoDisplay.getInstance();
 
             ingenicoDisplay.clear();
         } else {
-            VerifoneV240mDisplay verifoneV240mDisplay = new VerifoneV240mDisplay();
+            VerifoneV240mDisplay verifoneV240mDisplay = VerifoneV240mDisplay.getInstance();
 
             verifoneV240mDisplay.clear();
         }
